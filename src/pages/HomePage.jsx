@@ -8,7 +8,7 @@ function HomePage() {
     console.log(data)
     return (
         <>
-            <h1>Categories</h1>
+            <h2>Categories</h2>
 
             {loading && 
                 <p>
