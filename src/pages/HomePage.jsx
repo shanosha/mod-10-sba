@@ -32,7 +32,7 @@ function HomePage() {
                             <h2>{element.strCategory}</h2>
                             <img src={element.strCategoryThumb} alt={element.strCategory} />
                             <p>{element.strCategoryDescription}</p>
-                            <Link to={`/category/${element.idCategory}`}>{element.strCategory} Recipes</Link>
+                            <Link to={`/category/${element.strCategory}`}>{element.strCategory} Recipes</Link>
                         </li>
                     )}
                 </ul>
