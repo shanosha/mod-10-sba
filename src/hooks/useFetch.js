@@ -25,7 +25,7 @@ export function useFetch(url,options={}) {
             }
             catch(err) {
                 if (err.name !== 'AbortError') { // Don't set error if aborted
-                    setError(err);
+                    setError(err.message);
                 }
             }
             finally {
@@ -33,10 +33,13 @@ export function useFetch(url,options={}) {
             }
         }
 
-        fetchData()
+        const forcedDelay = setTimeout(()=>fetchData(),3000)
 
-        return () => controller.abort();
-    },[url,options])
+        return () => {
+            controller.abort();
+            clearTimeout(forcedDelay);
+        }
+    },[url])
 
     return {data,loading,error};
 }

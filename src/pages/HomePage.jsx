@@ -1,7 +1,42 @@
+import { useState } from "react";
+import { useFetch } from "../hooks/useFetch";
+import { Link } from "react-router-dom";
+import loadingSpinner from '../assets/loading.gif';
+
 function HomePage() {
+    const {data,loading,error} = useFetch("https://www.themealdb.com/api/json/v1/1/categories.php");
+
+    console.log(data)
     return (
         <>
-            <h1>HomePage</h1>
+            <h1>Categories</h1>
+
+            {loading && 
+                <p>
+                <img src={loadingSpinner} /><br />
+                Loading...
+                </p>
+            }
+
+            {error && 
+                <p>
+                {error}
+                </p>
+            }
+
+            {data &&
+                <ul>
+                    {data.categories.map(element => 
+                        <li key={element.idCategory}>
+                            
+                            <h2>{element.strCategory}</h2>
+                            <img src={element.strCategoryThumb} alt={element.strCategory} />
+                            <p>{element.strCategoryDescription}</p>
+                            <Link to={`/category/${element.idCategory}`}>{element.strCategory} Recipes</Link>
+                        </li>
+                    )}
+                </ul>
+            }
         </>
     )
 }
