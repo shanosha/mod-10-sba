@@ -31,8 +31,8 @@ function CategoryPage() {
                         <li key={element.idMeal}>
                             
                             <h3>{element.strMeal}</h3>
-                            <img src={element.strMealThumb} alt={element.strMeal} />
-                            <Link to={`/category/${element.idMeal}`}>Details</Link>
+                            <img src={element.strMealThumb} alt={element.strMeal} /><br />
+                            <Link to={`/recipe/${element.idMeal}`}>Details</Link>
                         </li>
                     )}
                 </ul>
