@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import loadingSpinner from '../assets/loading.gif';
