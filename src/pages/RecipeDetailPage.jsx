@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import loadingSpinner from '../assets/loading.gif';
+import { useContext } from "react";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 function RecipeDetailPage() {
     const {recipeId} = useParams();
     const {data,loading,error} = useFetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+recipeId);
+    const {addFavorite,removeFavorite,isFavorite} = useContext(FavoritesContext)
     
     console.log(data)
 
@@ -26,6 +29,7 @@ function RecipeDetailPage() {
             .filter(key => key.includes('strIngredient'))
             .map(key => mealData[key])
         
+        meal.id = mealData.idMeal;
         meal.name = mealData.strMeal;
         meal.img = mealData.strMealThumb;
         meal.ingredients = ingredients.filter((value)=>value!=="").map((value,index) => 
@@ -70,6 +74,9 @@ function RecipeDetailPage() {
                 <>
                 <h2>{meal.name}</h2>
                 <img src={meal.img} alt={meal.name} />
+
+                <button onClick={()=>isFavorite(meal.id)?removeFavorite(meal.id):addFavorite(meal.id)}>{isFavorite(meal.id)?"Remove from Favorites":"Add to Favorites"} </button>
+
                 <h3>Ingredients</h3>
                 <ol>
                     {meal.ingredients.map((value,index) => 
@@ -84,8 +91,8 @@ function RecipeDetailPage() {
 
                 <h3>Other Details</h3>
                 <ul>
+                <li><span className="font-semibold">Category:</span> <Link to={`/category/${meal.category}`}>{meal.category}</Link></li>
                 <li><span className="font-semibold">Area:</span> {meal.area}</li>
-                <li><span className="font-semibold">Category:</span> {meal.category}</li>
                 <li><span className="font-semibold">Meal Source:</span> {meal.source}</li>
                 <li><span className="font-semibold">YouTube:</span> {meal.youTube}</li>
                 <li><span className="font-semibold">Tags:</span> {meal.tags}</li>
