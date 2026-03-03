@@ -73,8 +73,7 @@ function RecipeDetailPage() {
             {displayMealData &&
                 <>
                 <h2>{meal.name}</h2>
-                <img src={meal.img} alt={meal.name} />
-
+                <img src={meal.img} alt={meal.name} /><br />
                 <button onClick={()=>isFavorite(meal.id)?removeFavorite(meal.id):addFavorite(meal.id)}>{isFavorite(meal.id)?"Remove from Favorites":"Add to Favorites"} </button>
 
                 <h3>Ingredients</h3>
