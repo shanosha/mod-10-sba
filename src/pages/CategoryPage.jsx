@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-import { Link } from "react-router-dom";
 import loadingSpinner from '../assets/loading.gif';
+import { RecipeCard } from "../components/RecipeCard";
 
 function CategoryPage() {
     const {categoryName} = useParams();
@@ -28,12 +28,7 @@ function CategoryPage() {
             {data &&
                 <ul>
                     {data.meals.map(element => 
-                        <li key={element.idMeal}>
-                            
-                            <h3>{element.strMeal}</h3>
-                            <img src={element.strMealThumb} alt={element.strMeal} /><br />
-                            <Link to={`/recipe/${element.idMeal}`}>Details</Link>
-                        </li>
+                        <RecipeCard key={element.idMeal} meal={element} />
                     )}
                 </ul>
             }
