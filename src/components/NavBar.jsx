@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
+import { cn } from '../utils/utils'
 
 function NavBar () {
     return (
         <>
             <nav>
-                <ul>
+                <ul className={cn("flex gap-4 justify-around")}>
                 <li>
                     <NavLink
                     to='/'
