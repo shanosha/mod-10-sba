@@ -19,11 +19,10 @@ function HomePage() {
                 <ul>
                     {data.categories.map(element => 
                         <li key={element.idCategory}>
-                            
                             <h3>{element.strCategory}</h3>
                             <img src={element.strCategoryThumb} alt={element.strCategory} />
                             <p>{element.strCategoryDescription}</p>
-                            <Link to={`/category/${element.strCategory}`}>{element.strCategory} Recipes</Link>
+                            <Link to={`/category/${element.strCategory}`}>View {element.strCategory} Recipes</Link>
                         </li>
                     )}
                 </ul>
