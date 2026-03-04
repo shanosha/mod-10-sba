@@ -54,13 +54,9 @@ function RecipeDetailPage() {
                 <>
                     <h2>Recipe</h2>
 
-                    {loading && 
-                        <Spinner />
-                    }
+                    {loading && <Spinner />}
 
-                    {error && 
-                        <ErrorMessage error={error} />
-                    }
+                    {error && <ErrorMessage error={error} />}
 
                 </>
             }

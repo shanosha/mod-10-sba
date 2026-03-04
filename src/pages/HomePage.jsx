@@ -11,13 +11,9 @@ function HomePage() {
         <>
             <h2>Categories</h2>
 
-            {loading && 
-                <Spinner />
-            }
+            {loading && <Spinner />}
 
-            {error && 
-                <ErrorMessage error={error} />
-            }
+            {error && <ErrorMessage error={error} />}
 
             {data &&
                 <ul>

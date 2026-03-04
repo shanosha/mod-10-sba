@@ -13,13 +13,9 @@ function CategoryPage() {
         <>
             <h2>{categoryName} Recipes</h2>
             
-            {loading && 
-                <Spinner />
-            }
+            {loading && <Spinner />}
 
-            {error && 
-                <ErrorMessage error={error} />
-            }
+            {error && <ErrorMessage error={error} />}
 
             {data &&
                 <ul>
