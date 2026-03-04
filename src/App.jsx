@@ -7,15 +7,14 @@ import { HomePage } from './pages/HomePage'
 import { CategoryPage } from './pages/CategoryPage'
 import { RecipeDetailPage } from './pages/RecipeDetailPage'
 import { FavoritesPage } from './pages/FavoritesPage'
-import { NavBar } from './components/NavBar'
+import { Header } from './components/Header'
 
 function App() {
 
   return (
     <>
     <AppProviders>
-      <h1>App</h1>
-      <NavBar />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
