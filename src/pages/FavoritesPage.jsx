@@ -1,6 +1,7 @@
 import { RecipeCard } from "../components/RecipeCard";
 import { useContext } from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
+import { H2 } from "../components/H2";
 
 function FavoritesPage() {
 
@@ -8,7 +9,7 @@ function FavoritesPage() {
     console.log("favorites: ",favorites)
     return (
         <>
-            <h2>Favorite Recipes</h2>
+            <H2 text={"Favorite Recipes"} />
 
             {favorites.length>0 ?
                 <ul>

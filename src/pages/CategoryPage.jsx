@@ -3,6 +3,7 @@ import { useFetch } from "../hooks/useFetch";
 import { RecipeCard } from "../components/RecipeCard";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Spinner } from "../components/Spinner";
+import { H2 } from "../components/H2";
 
 function CategoryPage() {
     const {categoryName} = useParams();
@@ -10,7 +11,7 @@ function CategoryPage() {
     
     return (
         <>
-            <h2>{categoryName} Recipes</h2>
+            <H2 text={`${categoryName} Recipes`} />
             
             {loading && <Spinner />}
 

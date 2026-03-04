@@ -2,6 +2,7 @@ import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Spinner } from "../components/Spinner";
+import { H2 } from "../components/H2";
 
 function HomePage() {
     const {data,loading,error} = useFetch("https://www.themealdb.com/api/json/v1/1/categories.php");
@@ -9,6 +10,7 @@ function HomePage() {
     return (
         <>
             <h2>Categories</h2>
+            <H2 text={`Categories`} />
 
             {loading && <Spinner />}
 

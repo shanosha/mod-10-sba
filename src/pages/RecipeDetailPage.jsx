@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Spinner } from "../components/Spinner";
+import { H2 } from "../components/H2";
 
 function RecipeDetailPage() {
     const {recipeId} = useParams();
@@ -52,7 +53,7 @@ function RecipeDetailPage() {
             
             {(loading || error) && 
                 <>
-                    <h2>Recipe</h2>
+                    <H2 text={"Recipe"} />
 
                     {loading && <Spinner />}
 
@@ -63,7 +64,7 @@ function RecipeDetailPage() {
 
             {displayMealData &&
                 <>
-                <h2>{meal.strMeal}</h2>
+                <H2 text={meal.strMeal} />
                 <img src={meal.strMealThumb} alt={meal.strMeal} /><br />
                 <button id="favButton" onClick={()=>isFavorite(meal)?removeFavorite(meal):addFavorite(meal)}>{isFavorite(meal)?"Remove from Favorites":"Add to Favorites"} </button>
 
