@@ -33,7 +33,7 @@ export function useFetch(url,options={}) {
             }
         }
 
-        const forcedDelay = setTimeout(()=>fetchData(),3000)
+        const forcedDelay = setTimeout(()=>fetchData(),1000)
 
         return () => {
             controller.abort();
