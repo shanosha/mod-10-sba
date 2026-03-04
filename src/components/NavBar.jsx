@@ -8,7 +8,7 @@ function NavBar () {
                 <li>
                     <NavLink
                     to='/'
-                    style={(isActive)=>({
+                    style={({isActive})=>({
                         color: isActive ? 'red' : ''
                     })}>
                         Home
@@ -17,7 +17,7 @@ function NavBar () {
                 <li>
                     <NavLink
                     to='/favorites'
-                    style={(isActive)=>({
+                    style={({isActive})=>({
                         color: isActive ? 'red' : ''
                     })}>
                         Favorites
