@@ -3,8 +3,8 @@ import { NavBar } from "./NavBar"
 function Header () {
     return (
         <>
-            <header>
-                <h1>Recipe App</h1>
+            <header className="flex gap-8 items-end">
+                <h1 className="text-3xl font-bold">Recipe App</h1>
                 <NavBar />
             </header>
         </>
