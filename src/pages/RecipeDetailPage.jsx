@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import loadingSpinner from '../assets/loading.gif';
 import { useContext } from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 function RecipeDetailPage() {
     const {recipeId} = useParams();
@@ -62,9 +63,7 @@ function RecipeDetailPage() {
             {error && 
                 <div>
                     <h2>Recipe</h2>
-                    <p>
-                    {error}
-                    </p>
+                    <ErrorMessage error={error} />
                 </div>
             }
 

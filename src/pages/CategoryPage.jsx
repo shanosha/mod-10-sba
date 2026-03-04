@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import loadingSpinner from '../assets/loading.gif';
 import { RecipeCard } from "../components/RecipeCard";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 function CategoryPage() {
     const {categoryName} = useParams();
@@ -20,9 +21,7 @@ function CategoryPage() {
             }
 
             {error && 
-                <p>
-                {error}
-                </p>
+                <ErrorMessage error={error} />
             }
 
             {data &&
