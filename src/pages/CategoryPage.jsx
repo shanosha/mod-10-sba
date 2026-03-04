@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-import loadingSpinner from '../assets/loading.gif';
 import { RecipeCard } from "../components/RecipeCard";
 import { ErrorMessage } from "../components/ErrorMessage";
+import { Spinner } from "../components/Spinner";
 
 function CategoryPage() {
     const {categoryName} = useParams();
@@ -14,10 +14,7 @@ function CategoryPage() {
             <h2>{categoryName} Recipes</h2>
             
             {loading && 
-                <p>
-                <img src={loadingSpinner} /><br />
-                Loading...
-                </p>
+                <Spinner />
             }
 
             {error && 

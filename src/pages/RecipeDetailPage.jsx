@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
-import loadingSpinner from '../assets/loading.gif';
 import { useContext } from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
 import { ErrorMessage } from "../components/ErrorMessage";
+import { Spinner } from "../components/Spinner";
 
 function RecipeDetailPage() {
     const {recipeId} = useParams();
@@ -55,10 +55,7 @@ function RecipeDetailPage() {
                     <h2>Recipe</h2>
 
                     {loading && 
-                            <p>
-                            <img src={loadingSpinner} /><br />
-                            Loading...
-                            </p>
+                        <Spinner />
                     }
 
                     {error && 
