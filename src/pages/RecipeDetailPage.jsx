@@ -50,21 +50,22 @@ function RecipeDetailPage() {
     return (
         <>
             
-            {loading && 
-                <div>
+            {(loading || error) && 
+                <>
                     <h2>Recipe</h2>
-                    <p>
-                    <img src={loadingSpinner} /><br />
-                    Loading...
-                    </p>
-                </div>
-            }
 
-            {error && 
-                <div>
-                    <h2>Recipe</h2>
-                    <ErrorMessage error={error} />
-                </div>
+                    {loading && 
+                            <p>
+                            <img src={loadingSpinner} /><br />
+                            Loading...
+                            </p>
+                    }
+
+                    {error && 
+                        <ErrorMessage error={error} />
+                    }
+
+                </>
             }
 
             {displayMealData &&
