@@ -8,7 +8,6 @@ function CategoryPage() {
     const {categoryName} = useParams();
     const {data,loading,error} = useFetch("https://www.themealdb.com/api/json/v1/1/filter.php?c="+categoryName);
     
-    console.log(data)
     return (
         <>
             <h2>{categoryName} Recipes</h2>

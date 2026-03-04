@@ -14,7 +14,6 @@ function RecipeDetailPage() {
     let displayMealData = false;
     const meal = {}
     if(data){
-        console.log("data populated")
 
         const mealData = data.meals[0];
         
@@ -47,6 +46,7 @@ function RecipeDetailPage() {
         displayMealData = true;
 
     }
+    
     return (
         <>
             
