@@ -2,12 +2,19 @@ import { FavoritesContext } from "./context/FavoritesContext"
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 export function AppProviders({children}) {
-    const [favorites,setFavorites] = useLocalStorage("favoriteRecipes",[])
+    const [favorites,setFavorites] = useLocalStorage("favoriteRecipes",[]);
 
-    const addFavorite = (id) => {setFavorites([...favorites,id]);console.log("id=",id);}
-    const removeFavorite = (id) => setFavorites(favorites.filter((fav)=>fav!==id))
-    const isFavorite = (id) => {
-        if(favorites.length>0){return favorites.includes(id);}
+    const addFavorite = (meal) => {setFavorites((prev)=>[...prev,meal]);}
+
+    const removeFavorite = (meal) => setFavorites((prev)=>prev.filter((fav)=>{
+        console.log("boolean:", fav.idMeal!==meal.idMeal);
+        console.log("fav.idMeal:", fav.idMeal);
+        console.log("meal.idMeal:", meal.idMeal);
+        return fav.idMeal!==meal.idMeal;
+    }));
+
+    const isFavorite = (meal) => {
+        if(favorites.length>0){return favorites.some(fav => fav.idMeal === meal.idMeal);}
         else {return false;}
     }
     

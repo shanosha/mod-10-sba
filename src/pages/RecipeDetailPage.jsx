@@ -10,8 +10,6 @@ function RecipeDetailPage() {
     const {data,loading,error} = useFetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+recipeId);
     const {addFavorite,removeFavorite,isFavorite} = useContext(FavoritesContext)
     
-    console.log(data)
-
     let displayMealData = false;
     const meal = {}
     if(data){
@@ -29,9 +27,9 @@ function RecipeDetailPage() {
             .filter(key => key.includes('strIngredient'))
             .map(key => mealData[key])
         
-        meal.id = mealData.idMeal;
-        meal.name = mealData.strMeal;
-        meal.img = mealData.strMealThumb;
+        meal.idMeal = mealData.idMeal;
+        meal.strMeal = mealData.strMeal;
+        meal.strMealThumb = mealData.strMealThumb;
         meal.ingredients = ingredients.filter((value)=>value!=="").map((value,index) => 
             `${value} (${measurements[index]})`
         )
@@ -72,9 +70,9 @@ function RecipeDetailPage() {
 
             {displayMealData &&
                 <>
-                <h2>{meal.name}</h2>
-                <img src={meal.img} alt={meal.name} /><br />
-                <button onClick={()=>isFavorite(meal.id)?removeFavorite(meal.id):addFavorite(meal.id)}>{isFavorite(meal.id)?"Remove from Favorites":"Add to Favorites"} </button>
+                <h2>{meal.strMeal}</h2>
+                <img src={meal.strMealThumb} alt={meal.strMeal} /><br />
+                <button id="favButton" onClick={()=>isFavorite(meal)?removeFavorite(meal):addFavorite(meal)}>{isFavorite(meal)?"Remove from Favorites":"Add to Favorites"} </button>
 
                 <h3>Ingredients</h3>
                 <ol>
