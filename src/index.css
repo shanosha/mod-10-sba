@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@layer base {
+@layer components {
   a {
     @apply text-[#646cff];
   }
@@ -10,9 +10,6 @@
   h3 {
     @apply text-xl font-semibold my-4;
   }
-}
-
-@layer components {
   section {
     @apply flex flex-col justify-center items-center;
   }
