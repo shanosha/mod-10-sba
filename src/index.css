@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
+@layer base {
+  #root {
+    @apply flex flex-col items-center;
+  }
+  #root header,
+  #root main {
+    @apply w-full max-w-5xl;
+  }
+}
 @layer components {
   a {
-    @apply text-[#646cff];
+    @apply text-[#646cff] hover:text-[#565ddc];
   }
   h2 {
     @apply text-2xl font-semibold my-4;
   }
   h3 {
-    @apply text-xl font-semibold my-4;
+    @apply text-xl font-semibold mb-2 mt-8;
   }
   section {
     @apply flex flex-col justify-center items-center;
   }
-  section ul {
-    @apply flex flex-wrap sm:grid sm:gap-4 sm:grid-cols-2 md:grid-cols-3;
+  section>ul {
+    @apply flex flex-wrap sm:grid sm:gap-4 sm:grid-cols-2 lg:grid-cols-3;
   }
   .card {
     @apply bg-white p-4 my-4 border border-gray-300 rounded-lg;
   }
+  .card h3 {
+    @apply text-xl font-semibold mt-2 mb-4;
+  }
+  .card img {
+    @apply mb-6 w-full;
+  }
   .card a,
   section button {
-    @apply bg-[#646cff] text-white inline-block my-4 px-4 py-2 rounded;
+    @apply bg-[#646cff] hover:bg-[#565ddc] text-white inline-block my-4 px-4 py-2 rounded cursor-pointer;
+  }
+  section .card button {
+    @apply ml-2;
+  }
+  .productDetails ol {
+    @apply list-decimal ml-7;
+  }
+  .productDetails ul {
+    @apply list-disc ml-7;
+  }
+  .productDetails img {
+    @apply shadow-2xl h-96 object-cover;
+  }
+  .error {
+    @apply bg-red-100 text-center p-4 border border-red-200 rounded-lg;
+  }
+  .loading {
+    @apply bg-red-100 text-center p-4 border border-red-200 rounded-lg;
   }
 }

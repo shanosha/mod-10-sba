@@ -16,10 +16,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/category/:categoryName" element={<CategoryPage />} />
-              <Route path="/recipe/:recipeId" element={<RecipeDetailPage />} />
-              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route index element={<HomePage />} />
+              <Route path="category/:categoryName" element={<CategoryPage />} />
+              <Route path="recipe/:recipeId" element={<RecipeDetailPage />} />
+              <Route path="favorites" element={<FavoritesPage />} />
             </Route>
         </Routes>
     </AppProviders>

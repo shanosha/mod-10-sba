@@ -1,6 +1,6 @@
 function ErrorMessage ({error}) {
     return (
-        <p>
+        <p className="error">
             {error}
         </p>
     )

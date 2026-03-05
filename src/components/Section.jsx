@@ -1,13 +1,11 @@
 import { Outlet } from "react-router-dom"
 import { cn } from "../utils/utils"
 
-function Section ({children}) {
+function Section ({className="",children}) {
     return (
-        <>
-            <section className={cn()}>
-                {children}
-            </section>
-        </>
+        <section className={cn(className)}>
+            {children}
+        </section>
     )
 }
 

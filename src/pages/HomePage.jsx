@@ -1,7 +1,6 @@
 import { useFetch } from "../hooks/useFetch";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Spinner } from "../components/Spinner";
-import { H2 } from "../components/H2";
 import { CategoryCard } from "../components/CategoryCard";
 import { Section } from "../components/Section";
 
@@ -10,7 +9,7 @@ function HomePage() {
 
     return (
         <>
-            <H2 text={"Recipe Categories"} />
+            <h2>{"Recipe Categories"}</h2>
 
             <Section>
 

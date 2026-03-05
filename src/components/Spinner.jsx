@@ -2,7 +2,7 @@ import loadingSpinner from '../assets/loading.gif';
 
 function Spinner () {
     return (
-        <p>
+        <p className='loading'>
             <img src={loadingSpinner} /><br />
             Loading...
         </p>
