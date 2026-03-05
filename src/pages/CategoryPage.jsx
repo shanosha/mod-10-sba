@@ -4,6 +4,7 @@ import { RecipeCard } from "../components/RecipeCard";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Spinner } from "../components/Spinner";
 import { H2 } from "../components/H2";
+import { Section } from "../components/Section";
 
 function CategoryPage() {
     const {categoryName} = useParams();
@@ -12,18 +13,21 @@ function CategoryPage() {
     return (
         <>
             <H2 text={`${categoryName} Recipes`} />
+            <Section>
             
-            {loading && <Spinner />}
+                {loading && <Spinner />}
 
-            {error && <ErrorMessage error={error} />}
+                {error && <ErrorMessage error={error} />}
 
-            {data &&
-                <ul>
-                    {data.meals.map(element => 
-                        <RecipeCard key={element.idMeal} meal={element} />
-                    )}
-                </ul>
-            }
+                {data &&
+                    <ul>
+                        {data.meals.map(element => 
+                            <RecipeCard key={element.idMeal} meal={element} />
+                        )}
+                    </ul>
+                }
+                
+            </Section>
         </>
     )
 }

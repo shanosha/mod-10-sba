@@ -10,7 +10,9 @@ function NavBar () {
                     <NavLink
                     to='/'
                     style={({isActive})=>({
-                        color: isActive ? 'red' : ''
+                        color: isActive ? 'blue' : '',
+                        paddingBottom: isActive ? '5px' : '',
+                        borderBottom: isActive ? '1px solid #646cff' : '5px'
                     })}>
                         Home
                     </NavLink>
@@ -19,7 +21,9 @@ function NavBar () {
                     <NavLink
                     to='/favorites'
                     style={({isActive})=>({
-                        color: isActive ? 'red' : ''
+                        color: isActive ? 'blue' : '',
+                        paddingBottom: isActive ? '1px' : '',
+                        borderBottom: isActive ? '1px solid #646cff' : '5px'
                     })}>
                         Favorites
                     </NavLink>

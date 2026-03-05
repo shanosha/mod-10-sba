@@ -6,22 +6,22 @@ import { CategoryPage } from './pages/CategoryPage'
 import { RecipeDetailPage } from './pages/RecipeDetailPage'
 import { FavoritesPage } from './pages/FavoritesPage'
 import { Header } from './components/Header'
-import { Section } from './components/Section'
+import { Main } from './components/Main'
 
 function App() {
 
   return (
     <>
     <AppProviders>
-      <Section>
         <Header />
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/category/:categoryName" element={<CategoryPage />} />
-            <Route path="/recipe/:recipeId" element={<RecipeDetailPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/" element={<Main />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/category/:categoryName" element={<CategoryPage />} />
+              <Route path="/recipe/:recipeId" element={<RecipeDetailPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+            </Route>
         </Routes>
-      </Section>
     </AppProviders>
     </>
   )

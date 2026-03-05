@@ -6,6 +6,7 @@ import { FavoritesContext } from "../context/FavoritesContext";
 import { ErrorMessage } from "../components/ErrorMessage";
 import { Spinner } from "../components/Spinner";
 import { H2 } from "../components/H2";
+import { Section } from "../components/Section";
 
 function RecipeDetailPage() {
     const {recipeId} = useParams();
@@ -55,9 +56,13 @@ function RecipeDetailPage() {
                 <>
                     <H2 text={"Recipe"} />
 
+                    <Section>
+
                     {loading && <Spinner />}
 
                     {error && <ErrorMessage error={error} />}
+
+                    </Section>
 
                 </>
             }
@@ -65,32 +70,37 @@ function RecipeDetailPage() {
             {displayMealData &&
                 <>
                 <H2 text={meal.strMeal} />
-                <img src={meal.strMealThumb} alt={meal.strMeal} /><br />
-                <button id="favButton" onClick={()=>isFavorite(meal)?removeFavorite(meal):addFavorite(meal)}>{isFavorite(meal)?"Remove from Favorites":"Add to Favorites"} </button>
 
-                <h3>Ingredients</h3>
-                <ol>
-                    {meal.ingredients.map((value,index) => 
-                        <li key={index}>
-                            {value}
-                        </li>
-                    )}
-                </ol>
-            
-                <h3>Instructions</h3>
-                <p>{meal.instructions}</p>
+                <Section>
 
-                <h3>Other Details</h3>
-                <ul>
-                <li><span className="font-semibold">Category:</span> <Link to={`/category/${meal.category}`}>{meal.category}</Link></li>
-                <li><span className="font-semibold">Area:</span> {meal.area}</li>
-                <li><span className="font-semibold">Meal Source:</span> {meal.source}</li>
-                <li><span className="font-semibold">YouTube:</span> {meal.youTube}</li>
-                <li><span className="font-semibold">Tags:</span> {meal.tags}</li>
-                <li><span className="font-semibold">Creative Commons Confirmed:</span> {meal.creativeCommonsConfirmed}</li>
-                <li><span className="font-semibold">Image Source:</span> {meal.imageSource}</li>
-                <li><span className="font-semibold">Alternative Meal:</span> {meal.mealAlternate}</li>
-                </ul>
+                    <img src={meal.strMealThumb} alt={meal.strMeal} /><br />
+                    <button id="favButton" onClick={()=>isFavorite(meal)?removeFavorite(meal):addFavorite(meal)}>{isFavorite(meal)?"Remove from Favorites":"Add to Favorites"} </button>
+
+                    <h3>Ingredients</h3>
+                    <ol>
+                        {meal.ingredients.map((value,index) => 
+                            <li key={index}>
+                                {value}
+                            </li>
+                        )}
+                    </ol>
+                
+                    <h3>Instructions</h3>
+                    <p>{meal.instructions}</p>
+
+                    <h3>Other Details</h3>
+                    <ul>
+                    <li><span className="font-semibold">Category:</span> <Link to={`/category/${meal.category}`}>{meal.category}</Link></li>
+                    <li><span className="font-semibold">Area:</span> {meal.area}</li>
+                    <li><span className="font-semibold">Meal Source:</span> {meal.source}</li>
+                    <li><span className="font-semibold">YouTube:</span> {meal.youTube}</li>
+                    <li><span className="font-semibold">Tags:</span> {meal.tags}</li>
+                    <li><span className="font-semibold">Creative Commons Confirmed:</span> {meal.creativeCommonsConfirmed}</li>
+                    <li><span className="font-semibold">Image Source:</span> {meal.imageSource}</li>
+                    <li><span className="font-semibold">Alternative Meal:</span> {meal.mealAlternate}</li>
+                    </ul>
+
+                </Section>
                 
                 </>
             }

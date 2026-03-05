@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+@layer base {
+  a {
+    @apply text-[#646cff];
+  }
+  h2 {
+    @apply text-2xl font-semibold my-4;
+  }
+  h3 {
+    @apply text-xl font-semibold my-4;
+  }
+}
+
+@layer components {
+  section {
+    @apply flex flex-col justify-center items-center;
+  }
+  section ul {
+    @apply flex flex-wrap sm:grid sm:gap-4 sm:grid-cols-2 md:grid-cols-3;
+  }
+  .card {
+    @apply bg-white p-4 my-4 border border-gray-300 rounded-lg;
+  }
+  .card a,
+  section button {
+    @apply bg-[#646cff] text-white inline-block my-4 px-4 py-2 rounded;
+  }
+}

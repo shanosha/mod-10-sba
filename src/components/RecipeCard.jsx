@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { cn } from "../utils/utils";
 
 function RecipeCard({meal}){
     return (
-        <li>
-            <h3>{meal.strMeal}</h3>
-            <img src={meal.strMealThumb+"/medium"} alt={meal.strMeal} /><br />
+        <li className={cn("card")}>
+            <img src={meal.strMealThumb+"/large"} alt={meal.strMeal} />
+            <h3 className={cn("text-xl my-4")}>{meal.strMeal}</h3>
             <Link to={`/recipe/${meal.idMeal}`}>Details</Link>
         </li>
     )
