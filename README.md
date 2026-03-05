@@ -1,16 +1,41 @@
-# React + Vite
+# React Recipe Discovery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A client-side “Recipe Discovery” application that utilizes React.js and the MealDB API. You can view a list of recipe categories, a list of recipes in each category, the details for each recipe, and on the recipe details page you can add or remove recipes to/from yur favorites list. If you have different pages open in multiple tabs, your favorites lists will be updated live on the favorites page.
 
-Currently, two official plugins are available:
+## Setup and Usage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Clone the repository.
 
-## React Compiler
+```
+git clone https://github.com/shanosha/mod-10-sba.git
+```
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Navigate to the directory.
 
-## Expanding the ESLint configuration
+```
+cd mod-10-sba
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Install the node packages.
+
+```
+npm install
+```
+
+- Run the Vite development server.
+
+```
+npm run dev
+```
+
+- Open the server URL in a browser.
+
+- Begin exploring recipes.
+
+## Reflection
+
+- The most challenging part of the project.
+  - The assignment requirements weren't clear and initially lead me to beleave that I could ONLY add the recipe ID to the favorites variable. But the instructor later clarified.
+
+- A brief explanation of a design decision you made (e.g., why you structured a hook a certain way, how you decided to manage a piece of state).
+  - I structured the useState custom hook to include a useEffect statment that monitors local storage, because when I was testing the app I had different pages open in different tabs, and I noticed favorites weren't being updated accuratly. Now, even if a user has different recipe detail pages open, and adds/removes recipes as favorites, the favorites page is updated live.
