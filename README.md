@@ -31,11 +31,3 @@ npm run dev
 - Open the server URL in a browser.
 
 - Begin exploring recipes.
-
-## Reflection
-
-- The most challenging part of the project.
-  - The assignment requirements weren't clear and initially lead me to beleave that I could ONLY add the recipe ID to the favorites variable. But the instructor later clarified.
-
-- A brief explanation of a design decision you made (e.g., why you structured a hook a certain way, how you decided to manage a piece of state).
-  - I structured the useState custom hook to include a useEffect statment that monitors local storage, because when I was testing the app I had different pages open in different tabs, and I noticed favorites weren't being updated accuratly. Now, even if a user has different recipe detail pages open, and adds/removes recipes as favorites, the favorites page is updated live.
